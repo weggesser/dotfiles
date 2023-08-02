@@ -13,7 +13,11 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-  	use {
+  use {
+    'machakann/vim-sandwich'
+  }
+
+  use {
 		'liuchengxu/space-vim-dark',
 		as = 'space-vim-dark',
 		config = function()
@@ -21,7 +25,7 @@ return require('packer').startup(function(use)
 		end
 	}
 
-	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })	
+	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 	use('ThePrimeagen/harpoon')
 	use('mbbill/undotree')
 	use('tpope/vim-fugitive')
@@ -31,4 +35,42 @@ return require('packer').startup(function(use)
 	    'nvim-tree/nvim-web-devicons', -- optional
 	  },
 	}
+
+  -- MarkDown Preview
+  -- install without yarn or npm
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
+  --  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
+
+	-- LSP
+	use {
+	  'VonHeikemen/lsp-zero.nvim',
+	  branch = 'v2.x',
+	  requires = {
+	    -- LSP Support
+	    {'neovim/nvim-lspconfig'},             -- Required
+	    {                                      -- Optional
+	      'williamboman/mason.nvim',
+	      run = function()
+		pcall(vim.cmd, 'MasonUpdate')
+	      end,
+	    },
+	    {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+	    -- Autocompletion
+	    {'hrsh7th/nvim-cmp'},     -- Required
+	    {'hrsh7th/cmp-nvim-lsp'}, -- Required
+	    {'L3MON4D3/LuaSnip'},     -- Required
+	  }
+	}
+
+  -- Prettier
+  use('MunifTanjim/prettier.nvim')
+
+  use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+  use 'romgrk/barbar.nvim'
 end)
