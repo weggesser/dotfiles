@@ -18,6 +18,10 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'rust-lang/rust.vim'
+  }
+
+  use {
 		'liuchengxu/space-vim-dark',
 		as = 'space-vim-dark',
 		config = function()
@@ -36,12 +40,29 @@ return require('packer').startup(function(use)
 	  },
 	}
 
+  -- Surround - braces, etc.
+  use({
+    "kylechui/nvim-surround",
+    tag = "*",
+  })
+
   -- MarkDown Preview
   -- install without yarn or npm
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
+
+  -- Comment.nvim
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
+
+  -- Multi Cursor
+  use({ "mg979/vim-visual-multi" })
 
   --  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
