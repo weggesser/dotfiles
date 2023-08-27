@@ -1,0 +1,19 @@
+# Aliases
+alias {v,vim}='nvim'
+
+alias {g,git}='/usr/local/bin/git'
+alias {py,python}='python3'
+alias tf='terraform'
+
+
+# Oh My Posh prompt
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/star.omp.json)"
+
+# Ruby Version Manager - RBenv
+export PATH="$HOME/.rbenv/bin:/usr/local/bin:$HOME/bin:$PATH"
+eval "$(rbenv init -)"
+
+# Node Version Manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
