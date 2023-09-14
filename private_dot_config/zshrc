@@ -1,8 +1,17 @@
+# PYENV
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+
+plugin=(pyenv)
+
+eval "$(pyenv init -)"
+
 # Aliases
 alias {v,vim}='nvim'
 
 alias {g,git}='/usr/local/bin/git'
-alias {py,python}='python3'
+alias py='python'
 alias tf='terraform'
 
 
