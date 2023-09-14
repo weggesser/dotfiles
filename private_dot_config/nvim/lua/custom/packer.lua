@@ -22,12 +22,16 @@ return require('packer').startup(function(use)
   }
 
   use {
-		'liuchengxu/space-vim-dark',
-		as = 'space-vim-dark',
-		config = function()
-			vim.cmd('colorscheme space-vim-dark')
-		end
+		'liuchengxu/space-vim-dark', as = 'space-vim-dark'
 	}
+
+  use {
+		'folke/tokyonight.nvim', as = 'tokyonight'
+	}
+
+  use {
+    'tamelion/neovim-molokai', as = 'molokai'
+  }
 
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 	use('ThePrimeagen/harpoon')
