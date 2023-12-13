@@ -22,6 +22,10 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'github/copilot.vim'
+  }
+
+  use {
 		'liuchengxu/space-vim-dark', as = 'space-vim-dark'
 	}
 
@@ -32,6 +36,9 @@ return require('packer').startup(function(use)
   use {
     'tamelion/neovim-molokai', as = 'molokai'
   }
+
+  use 'ray-x/go.nvim'
+  use 'ray-x/guihua.lua'
 
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 	use('ThePrimeagen/harpoon')

@@ -6,6 +6,7 @@ lsp.ensure_installed({
 	'eslint',
 	'rust_analyzer',
   'solargraph',
+  'golangci_lint_ls',
 })
 
 local cmp = require('cmp')
