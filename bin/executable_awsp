@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Set AWS_PROFILE ENV variable
+# Usage:    . awsp $PROFILE
+# Example:  . awsp default
+# Note:     It needs to be sourced, not executed!
+
+if [ -z "$1" ]; then
+  export AWS_PROFILE=default
+else
+  export AWS_PROFILE=$1
+fi
