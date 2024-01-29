@@ -1,10 +1,12 @@
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT:$PATH"
 export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
 
 export GOPATH="$HOME/go"
 export GOROOT="$(brew --prefix golang)/libexec"
+
+export XDG_CONFIG_HOME="$HOME/.config"
 
 plugin=(pyenv)
 
@@ -14,9 +16,11 @@ eval "$(pyenv init -)"
 alias {v,vim}='nvim'
 
 alias {g,git}='/usr/local/bin/git'
-alias py='python'
+# alias py='python'
 alias tf='terraform'
 
+# alias {py,python}='python3' 
+# alias pip='pip3'
 
 # Oh My Posh prompt
 eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/star.omp.json)"
