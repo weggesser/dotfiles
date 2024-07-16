@@ -1,9 +1,9 @@
 [window]
 padding = { x = 5, y = 5 }
-decorations = "Full"
+decorations = {{ .alacritty.window.decorations | quote }}
 opacity = 0.8
 blur = true
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Thin" }
-size = 14
+size = {{ .alacritty.font.size }}
