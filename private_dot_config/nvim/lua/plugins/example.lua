@@ -83,6 +83,42 @@ return {
     },
   },
 
+  {
+    "neovim/nvim-lspconfig",
+    servers = {
+      ruby_lsp = {
+        mason = false,
+        cmd = { vim.fn.expand("~/.rbenv/shims/ruby-lsp") },
+      },
+      rubocop = {
+        mason = false,
+      },
+    },
+  },
+
+  -- Fix ruby-lsp
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   ---@class PluginLspOpts
+  --   opts = {
+  --     ---@type lspconfig.options
+  --     servers = {
+  --       ruby_ls = {
+  --         settings = {
+  --           cmd = { "bundle", "exec", "ruby-lsp" },
+  --           ruby = {
+  --             diagnostics = {
+  --               enable = true,
+  --               experimentalObjectLiteralSyntax = true,
+  --             },
+  --             diagnosticsSeverity = "all",
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
+
   -- add pyright to lspconfig
   {
     "neovim/nvim-lspconfig",

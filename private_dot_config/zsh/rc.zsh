@@ -1,16 +1,35 @@
 # Source Aliases
 source ~/.config/zsh/aliases.zsh
 
+# Source Project Specific Aliases and ENVs
+# Drop zsh files with project specific data that should not be
+# in version control into prj
+DIR="$(pwd)/.config/zsh/prj/"
+for file in $(ls $DIR); do
+  source "$DIR/$file"
+done
+
 export PATH="$HOME/bin:$PATH"
 
 export GPG_TTY=$(tty)
+
+# ASDF
+. "$HOME/.asdf/asdf.sh"
+
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT:$PATH"
 export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
 
 export GOPATH="$HOME/go"
-export GOROOT="/usr/lib/go"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export GOROOT="$(brew --prefix golang)/libexec"
+else
+  export GOROOT="/usr/lib/go"
+fi
+
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
